@@ -1,23 +1,36 @@
 var dateDiff = function(input) {
-    var date1 = new Date()
-    var date2 = new Date(input)
+    date1 = new Date()
+    date2 = new Date(input)
         //Customise date2 for your required future time
 
     var diff = (date2 - date1) / 1000
     var diff = Math.abs(Math.floor(diff))
 
     days = Math.floor(diff / (24 * 60 * 60))
+    if (days.toString().length <= 1) {
+        days = "0" + days
+    }
     leftSec = diff - days * 24 * 60 * 60
 
     hrs = Math.floor(leftSec / (60 * 60))
+    if (hrs.toString().length <= 1) {
+        hrs = "0" + hrs
+    }
     leftSec = leftSec - hrs * 60 * 60
 
     min = Math.floor(leftSec / (60))
+    if (min.toString().length <= 1) {
+        min = "0" + min
+    }
     leftSec = leftSec - min * 60
+    if (leftSec.toString().length <= 1) {
+        leftSec = "0" + leftSec
+    }
 
 }
 var printTime = function() {
-    dateDiff('2016-09-22')
+    dateDiff('Thu Sep 22 2016 17:00:00 GMT+0100 (BST)')
+    console.log(days)
     var cdDays = document.getElementById("cd-days")
     var cdHrs = document.getElementById("cd-hrs")
     var cdMin = document.getElementById("cd-min")
