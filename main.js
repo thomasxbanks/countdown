@@ -28,9 +28,8 @@ var dateDiff = function(input) {
     }
 
 }
-var printTime = function() {
-    dateDiff('Thu Sep 22 2016 17:00:00 GMT+0100 (BST)')
-    console.log(days)
+var printTime = function(newDate) {
+    dateDiff(newDate)
     var cdDays = document.getElementById("cd-days")
     var cdHrs = document.getElementById("cd-hrs")
     var cdMin = document.getElementById("cd-min")
@@ -41,4 +40,8 @@ var printTime = function() {
     cdLeftsec.innerHTML = leftSec
 }
 
-setInterval(printTime, 1000)
+document.getElementById("launchCountdown").addEventListener("click", function(){
+    setInterval(function(){
+      printTime(document.getElementById('newDate').value)
+    }, 1000)
+})
