@@ -1,3 +1,12 @@
+"use strict"
+
+var date1,
+    date2,
+    days,
+    hrs,
+    min,
+    leftSec
+
 var dateDiff = function(input) {
     date1 = new Date()
     date2 = new Date(input)
@@ -40,8 +49,24 @@ var printTime = function(newDate) {
     cdLeftsec.innerHTML = leftSec
 }
 
-document.getElementById("launchCountdown").addEventListener("click", function(){
-    setInterval(function(){
-      printTime(document.getElementById('newDate').value)
-    }, 1000)
+var dateObject = {
+    day: '',
+    month: '',
+    year: ''
+}
+
+document.getElementById("newYear").addEventListener("keyup", function() {
+    dateObject.year = document.getElementById('newYear').value
 })
+
+document.getElementById("newMonth").addEventListener("keyup", function() {
+    dateObject.month = document.getElementById('newMonth').value
+})
+
+document.getElementById("newDay").addEventListener("keyup", function() {
+    dateObject.day = document.getElementById('newDay').value
+})
+
+setInterval(function() {
+    printTime(dateObject.year + "-" + dateObject.month + "-" + dateObject.day)
+}, 1000)

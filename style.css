@@ -10,7 +10,6 @@
 }
 
 #countdown th {
-
     font-size: 12px;
     font-weight: normal;
 }
@@ -21,10 +20,15 @@
 }
 
 h1 {
-  text-align: center;
+    text-align: center;
 }
 
-input, button {
+#inputWrapper {
   display: block;
-  margin: 10px auto;
+  width: 100%;
+  text-align: center;
+}
+input, label {
+  width: 33.33%;
+  max-width: 100px;
 }
